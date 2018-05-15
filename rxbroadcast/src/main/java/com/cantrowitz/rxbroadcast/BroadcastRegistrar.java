@@ -3,6 +3,7 @@ package com.cantrowitz.rxbroadcast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.util.Log;
 
 /**
  * Created by adamcantrowitz on 9/1/15.
@@ -27,6 +28,7 @@ class BroadcastRegistrar implements BroadcastRegistrarStrategy {
             context.unregisterReceiver(broadcastReceiver);
         }
         catch (IllegalArgumentException e) {
+           
             Log.e("RxBroadcast", "Already unregistered.");
         }
             
