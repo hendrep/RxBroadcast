@@ -23,6 +23,12 @@ class BroadcastRegistrar implements BroadcastRegistrarStrategy {
 
     @Override
     public void unregisterBroadcastReceiver(BroadcastReceiver broadcastReceiver) {
-        context.unregisterReceiver(broadcastReceiver);
+        try {
+            context.unregisterReceiver(broadcastReceiver);
+        }
+        catch (IllegalArgumentException e) {
+            Log.e("RxBroadcast", "Already unregistered.");
+        }
+            
     }
 }
